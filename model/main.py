@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score, classification_report
 import pickle
 
 def get_clean_data():
-    data = pd.read_csv('../data/data.csv')
+    data = pd.read_csv('data\data.csv')
     data = data.drop(['Unnamed: 32', 'id'], axis = 1)
     data['diagnosis'] = data['diagnosis'].map({ 'M' : 1, 'B' : 0 })
     return data
@@ -44,10 +44,10 @@ def main():
     model, scaler = create_model(data)
 
     # Export model
-    with open('../model/model.pkl', 'wb') as f: #(filename, write+binary)
+    with open('model\model.pkl', 'wb') as f: #(filename, write+binary)
         pickle.dump(model, f)
 
-    with open('../model/scaler.pkl', 'wb') as f:
+    with open('model\scaler.pkl', 'wb') as f:
         pickle.dump(scaler, f)
 
 
